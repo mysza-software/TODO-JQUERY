@@ -1,0 +1,23 @@
+zaczynamy prace przez START_SERWER
+
+
+adres aplikacji: http://127.0.0.1:8000/
+wylogowanie: http://127.0.0.1:8000/logout
+panel administratora: http://127.0.0.1:8000/admin l: celin p: coutwrite1209
+
+lista zadan ajax: http://127.0.0.1:8000/gettasks
+
+zapisywanie zadan: http://127.0.0.1:8000/savetasks
+
+{"completed": ["kupic mleko","lalalla"], "incomplete": ["zrobic kupe"]}
+
+CSS oraz JAVASCRIPT:
+
+C:\Users\Yoga\Desktop\TODO\tasks\static\tasks
+
+HTML:
+
+C:\Users\Yoga\Desktop\TODO\tasks\templates\tasks
+
+zadania:
+3. napisac ajaxa tak aby wyswietlaly sie zapisane zadania oraz zapisywaly sie po ingerencji uzytkownika

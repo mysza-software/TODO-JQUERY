@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Zaloguj</title>
+	<link  rel="stylesheet" href="{% static 'tasks/css/loginstyle.css' %}" type="text/css" title="myszon" charset="utf-8" charset=ISO-8859-2 lang="pl">
+</head>
+<body>
+	<p><span id="komunikat">Jezeli nie masz konta wprowadz dowolny login oraz haslo aby je utworzyc</span></p>
+	<form action="{% url 'tasks:login' %}" method="post" target="_top"> <!--action okreslenie miejsca gdzie ma byc wysylany formularz-->
+	{% csrf_token %}
+		<p>
+			<label for="username">Username</label> <!--for to nazwa id -->
+			<input id="username" name="username" type="text">
+		</p>
+		<p>
+			<label for="password">Password</label>
+			<input id="password" name="password" type="password">
+		        {% if msg %}
+			<span>{{ msg }}</span>
+		        {% endif %}
+		</p>
+		<p>
+			<input type="submit" value="SUBMIT">
+		</p>
+	</form>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="{% static 'tasks/js/login.js' %}"></script>
+</body>
+</html>
