@@ -28,12 +28,12 @@ function klikniecieAdd(zdarzenie){
 		$('input')[0].value='';																		//usuwanie wartosci z inputa new task po dodaniu pozycji
 }
 
-/*function zapiszCompleted() {
+function zapiszCompleted() {
 	var $newTask = $("#completed-tasks");
 	dodajPozycjaWykonana($newTask);
-}*/
+}
 
-function dodajPozycje($newTask /*,czyZapisywac=true*/){
+function dodajPozycje($newTask,czyZapisywac=true){
 		var $naszeUL = $("#incomplete-tasks");
 		var $naszeLi = $("<li>");
 		var $naszInput = $("<input type='checkbox'>");
@@ -55,12 +55,12 @@ function dodajPozycje($newTask /*,czyZapisywac=true*/){
 		$naszeLi.append($naszButtonDelete);
 		$naszeUL.append($naszeLi);
 
-		/*if(czyZapisywac) {
+		if(czyZapisywac) {
 			zapiszZadania();
-		}*/
+		}
 }
 
-function dodajPozycjeWykonana($newTask /*,czyZapisywac=true*/){
+function dodajPozycjeWykonana($newTask,czyZapisywac=true){
 		var $naszeUL = $("#completed-tasks");
 		var $naszeLi = $("<li>");
 		var $naszInput = $("<input type='checkbox'>");
@@ -84,9 +84,9 @@ function dodajPozycjeWykonana($newTask /*,czyZapisywac=true*/){
 		$naszeLi.append($naszButtonDelete);
 		$naszeUL.append($naszeLi);
 
-		/*	if(czyZapisywac) {
+		if(czyZapisywac) {
 				zapiszZadania();
-			}*/
+			}
 }
 
 function edytuj(){
@@ -114,12 +114,12 @@ function zakonczEdycje(){
 		$(this).text('Edit');
 		//wywołanie funkcji edytuj po kliknięciu Edit
 		$(this).click(edytuj);
-			 //zapiszZadania();
+		zapiszZadania();
 }
 
 function Delete(){
 		$(this).parent().remove();
-	//	zapiszZadania();
+	zapiszZadania();
 }
 
 function Checked(){
@@ -131,30 +131,29 @@ function Checked(){
 				var liOdznaczone = $(this).parent();
 				$('#incomplete-tasks').append(liOdznaczone);
 			}
-		//	zapiszZadania();
+		zapiszZadania();
 }
-/*
+
 //ajax
 function wyswietlZadania(data,textStatus,jqXHR) {	 //data to dane ktore pobiera json
 	for(var i=0;i<data['incomplete'].length; i++) {
 		dodajPozycje(data['incomplete'][i],false);
 	}
 	for(var i=0;i<data['completed'].length; i++) {
-		dodajPozycjaWykonana(data['completed'][i],false);
+		dodajPozycjeWykonana(data['completed'][i],false);
 	}
 }
 
 function zapiszZadania(){
 	var zadaniaNiewykonane = document.getElementById("incomplete-tasks").children;
 	var zadaniaWykonane  = document.getElementById("completed-tasks").children;
-	var data={"incomplete":[],"completed":[]};
+  var data={"incomplete":[],"completed":[]};
 	for(var i=0; i<zadaniaNiewykonane.length; i++) {
 		data['incomplete'].push(zadaniaNiewykonane[i].getElementsByTagName('label')[0].innerHTML);
 	}
 	for(var i=0; i<zadaniaWykonane.length; i++) {
 		data['completed'].push(zadaniaWykonane[i].getElementsByTagName('label')[0].innerHTML);
 	}
-}
 
 $.ajax({
 	url: "http://127.0.0.1:8000/savetasks",
@@ -163,7 +162,7 @@ $.ajax({
 	dataType: "json",
 	data: JSON.stringify(data),
 });
-
+}
 
 $.ajax({
 url: "http://127.0.0.1:8000/gettasks",
@@ -171,4 +170,3 @@ type: "GET",
 dataType:"json",
 success: wyswietlZadania
 });
-*/
